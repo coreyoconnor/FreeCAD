@@ -431,8 +431,9 @@ class Twist:
                         left_handed = True
                     else:
                         left_handed = False
+
                     auxiliary_spine = Part.makeHelix(pitch, height, radius, 0.0, left_handed)
-                    
+
                 faces = [lower_face,upper_face]
                 for wire1,wire2 in zip(lower_face.Wires,upper_face.Wires):
                     pipe_shell = Part.BRepOffsetAPI.MakePipeShell(spine)

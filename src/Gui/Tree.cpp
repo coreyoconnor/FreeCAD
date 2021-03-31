@@ -867,8 +867,10 @@ void TreeWidget::contextMenuEvent (QContextMenuEvent * e)
         if (objitem->object()->getObject()->isDerivedFrom(App::DocumentObjectGroup::getClassTypeId()))
             contextMenu.addAction(this->createGroupAction);
 
+        contextMenu.addSeparator();
         contextMenu.addAction(this->markRecomputeAction);
         contextMenu.addAction(this->recomputeObjectAction);
+        contextMenu.addSeparator();
         contextMenu.addAction(this->relabelObjectAction);
 
         auto selItems = this->selectedItems();
@@ -2682,6 +2684,7 @@ void TreeWidget::setupText()
 
     this->recomputeObjectAction->setText(tr("Recompute object"));
     this->recomputeObjectAction->setStatusTip(tr("Recompute the selected object"));
+    this->recomputeObjectAction->setIcon(BitmapFactory().iconFromTheme("view-refresh"));
 }
 
 void TreeWidget::syncView(ViewProviderDocumentObject *vp)
